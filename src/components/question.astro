@@ -1,0 +1,10 @@
+---
+export interface Props {
+	text?: String
+}
+
+const { text = 'N/I' } = Astro.props;
+---
+<div>
+	{text}
+</div>
