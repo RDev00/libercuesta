@@ -5,6 +5,8 @@ export interface Props {
 
 const { text = 'N/I' } = Astro.props;
 ---
-<div>
-	{text}
+<div class="w-[80dvw] max-w-[750px] bg-cyan-950 flex justify-center items-center p-[1rem] rounded-md min-h-[100px]">
+	<p class="text-white font-chewy text-xl text-center">
+		{text}
+	</p>	
 </div>
