@@ -1,0 +1,185 @@
+{
+  "quiz_title": "Liberalismo en México",
+  "questions": [
+    {
+      "question": "¿Qué presidente mexicano es conocido por implementar las 'Leyes de Reforma', fundamentales para el liberalismo del siglo XIX?",
+      "correct_answer": "Benito Juárez",
+      "incorrect_answers": [
+        "Porfirio Díaz",
+        "Antonio López de Santa Anna",
+        "Agustín de Iturbide"
+      ]
+    },
+    {
+      "question": "¿Cuál fue el principal objetivo de las Leyes de Reforma?",
+      "correct_answer": "Separar a la Iglesia del Estado y secularizar la sociedad",
+      "incorrect_answers": [
+        "Fortalecer el poder económico de la Iglesia católica",
+        "Promover la inversión extranjera en México",
+        "Establecer un sistema monárquico en México"
+      ]
+    },
+    {
+      "question": "La Constitución de 1857 es un pilar del liberalismo mexicano. ¿Qué principio establecía de manera novedosa?",
+      "correct_answer": "Las garantías individuales y la libertad de enseñanza",
+      "incorrect_answers": [
+        "La religión católica como única y oficial",
+        "La reelección presidencial indefinida",
+        "La centralización del poder en el presidente"
+      ]
+    },
+    {
+      "question": "¿Qué conflicto armado interno se desató como reacción conservadora contra las Leyes de Reforma y la Constitución de 1857?",
+      "correct_answer": "La Guerra de Reforma (o de los Tres Años)",
+      "incorrect_answers": [
+        "La Guerra de Independencia",
+        "La Revolución Mexicana",
+        "La Guerra de los Pasteles"
+      ]
+    },
+    {
+      "question": "El lema 'El respeto al derecho ajeno es la paz' está asociado a:",
+      "correct_answer": "Benito Juárez",
+      "incorrect_answers": [
+        "Porfirio Díaz",
+        "Miguel Hidalgo",
+        "Venustiano Carranza"
+      ]
+    },
+    {
+      "question": "Durante el Porfiriato (1876-1911), el liberalismo evolucionó hacia una ideología que priorizó:",
+      "correct_answer": "El orden, la paz y el progreso económico (liberalismo positivista)",
+      "incorrect_answers": [
+        "La democracia participativa y la justicia social",
+        "La distribución de tierras a los campesinos",
+        "El fortalecimiento de los sindicatos obreros"
+      ]
+    },
+    {
+      "question": "¿Qué grupo opositor al Porfiriato, de tendencia liberal, fundó el periódico 'Regeneración' y promovió la democracia?",
+      "correct_answer": "Los Magonistas (hermanos Flores Magón)",
+      "incorrect_answers": [
+        "Los Zapatistas",
+        "Los Maderistas",
+        "Los Villistas"
+      ]
+    },
+    {
+      "question": "La Constitución Política de 1917 retomó el liberalismo social de Juárez pero añadió un fuerte componente:",
+      "correct_answer": "De derechos sociales y reivindicaciones populares (Art. 3, 27, 123)",
+      "incorrect_answers": [
+        "Monárquico",
+        "Socialista",
+        "De libre mercado absoluto"
+      ]
+    },
+    {
+      "question": "¿Qué artículo de la Constitución de 1917 refleja el liberalismo social al establecer la educación laica y gratuita?",
+      "correct_answer": "Artículo 3",
+      "incorrect_answers": [
+        "Artículo 27",
+        "Artículo 123",
+        "Artículo 130"
+      ]
+    },
+    {
+      "question": "El 'período neoliberal' en México (a partir de los 80s) se caracterizó por políticas como:",
+      "correct_answer": "La reducción del Estado, privatizaciones y libre comercio",
+      "incorrect_answers": [
+        "La nacionalización de la banca",
+        "La expropiación petrolera",
+        "El reparto agrario ejidal"
+      ]
+    },
+    {
+      "question": "¿Qué presidente mexicano simbolizó la entrada definitiva de México al neoliberalismo con la firma del TLCAN?",
+      "correct_answer": "Carlos Salinas de Gortari",
+      "incorrect_answers": [
+        "Luis Echeverría",
+        "José López Portillo",
+        "Miguel de la Madrid"
+      ]
+    },
+    {
+      "question": "La expropiación petrolera de 1938 bajo Lázaro Cárdenas es un ejemplo de:",
+      "correct_answer": "Nacionalismo económico, alejado del liberalismo económico clásico",
+      "incorrect_answers": [
+        "Política neoliberal",
+        "Aplicación de las Leyes de Reforma",
+        "Libre mercado"
+      ]
+    },
+    {
+      "question": "¿Qué pensador liberal mexicano del siglo XIX es autor de 'La Libertad de Enseñanza'?",
+      "correct_answer": "José María Luis Mora",
+      "incorrect_answers": [
+        "Lucas Alamán (conservador)",
+        "Fray Servando Teresa de Mier",
+        "Lorenzo de Zavala"
+      ]
+    },
+    {
+      "question": "El Plan de Ayutla (1854) fue un pronunciamiento liberal que tenía como objetivo principal:",
+      "correct_answer": "Derrocar a Antonio López de Santa Anna",
+      "incorrect_answers": [
+        "Coronar a un emperador",
+        "Invadir Texas",
+        "Expropiar los bienes de la Iglesia"
+      ]
+    },
+    {
+      "question": "La 'Reforma Liberal' del siglo XIX decretó la nacionalización de los bienes:",
+      "correct_answer": "Del clero y las corporaciones eclesiásticas",
+      "incorrect_answers": [
+        "De los campesinos",
+        "De las empresas extranjeras",
+        "De los presidentes en turno"
+      ]
+    },
+    {
+      "question": "¿Qué ley expedida durante la Reforma decretó la separación oficial entre la Iglesia y el Estado?",
+      "correct_answer": "Ley de Matrimonio Civil (Ley Iglesias)",
+      "incorrect_answers": [
+        "Ley de Imprenta",
+        "Ley de Nacionalización de Bienes Eclesiásticos",
+        "Ley de Desamortización de Fincas Rústicas y Urbanas (Ley Lerdo)"
+      ]
+    },
+    {
+      "question": "El concepto de 'Liberalismo Social' en México se diferencia del 'Liberalismo Clásico' porque:",
+      "correct_answer": "Busca que el Estado garantice ciertos derechos y justicia social",
+      "incorrect_answers": [
+        "Rechaza toda intervención del Estado",
+        "Propone la eliminación de la propiedad privada",
+        "Defiende los privilegios de la aristocracia"
+      ]
+    },
+    {
+      "question": "¿Qué presidente, aunque proveniente de la Revolución, inició el gradual abandono del nacionalismo económico hacia políticas más liberales?",
+      "correct_answer": "Miguel Alemán Valdés",
+      "incorrect_answers": [
+        "Lázaro Cárdenas",
+        "Manuel Ávila Camacho",
+        "Adolfo López Mateos"
+      ]
+    },
+    {
+      "question": "La 'Guerra Cristera' (1926-1929) fue un conflicto entre el gobierno posrevolucionario y grupos católicos, que tuvo su origen en la aplicación de:",
+      "correct_answer": "Los artículos anticlericales de la Constitución de 1917",
+      "incorrect_answers": [
+        "Las Leyes de Reforma del siglo XIX",
+        "Las políticas económicas del Porfiriato",
+        "El Tratado de Libre Comercio"
+      ]
+    },
+    {
+      "question": "La figura de 'Benito Juárez' representa para el liberalismo mexicano:",
+      "correct_answer": "La defensa de la soberanía nacional, el Estado laico y la legalidad",
+      "incorrect_answers": [
+        "La alianza con las potencias extranjeras",
+        "La instauración de un régimen de partido único",
+        "La implementación de un modelo económico socialista"
+      ]
+    }
+  ]
+}

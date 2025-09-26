@@ -1,0 +1,183 @@
+---
+import Question from '../components/question.astro';
+import Answers from '../components/answers.astro';
+import quizData from '../data/questions.json';
+
+function shuffleAnswers(correct: string, incorrect: string[]): string[] {
+  const allAnswers = [correct, ...incorrect];
+  for (let i = allAnswers.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [allAnswers[i], allAnswers[j]] = [allAnswers[j], allAnswers[i]];
+  }
+  return allAnswers;
+}
+
+const initialIndex = Math.floor(Math.random() * quizData.questions.length);
+const currentQuestion = quizData.questions[initialIndex];
+const totalQuestions = quizData.questions.length;
+const shuffledAnswers = shuffleAnswers(currentQuestion.correct_answer, currentQuestion.incorrect_answers);
+---
+
+<div>
+  <p id="index" class="hidden">{initialIndex}</p>
+  <Question text={currentQuestion.question} />
+
+  <div>
+    {shuffledAnswers.map((answer: string) => (
+      <Answers text={answer} />
+    ))}
+  </div>
+</div>
+
+<script type="module">
+// Código del cliente - se ejecuta en el navegador
+document.addEventListener('DOMContentLoaded', () => {
+  const totalQuestions = ${totalQuestions};
+  const indexElement = document.getElementById('index');
+  const currentIndex = indexElement ? parseInt(indexElement.textContent.trim()) : 0;
+  
+  // Sistema de estado del juego
+  const getGameState = () => {
+    try {
+      return {
+        attempts: parseInt(localStorage.getItem('gameAttempts') || '0'),
+        points: parseInt(localStorage.getItem('gamePoints') || '0'),
+        usedQuestions: JSON.parse(localStorage.getItem('usedQuestions') || '[]'),
+        lastQuestion: parseInt(localStorage.getItem('lastQuestion') || '-1')
+      };
+    } catch (error) {
+      return {
+        attempts: 0,
+        points: 0,
+        usedQuestions: [],
+        lastQuestion: -1
+      };
+    }
+  };
+  
+  const saveGameState = (state) => {
+    localStorage.setItem('gameAttempts', state.attempts.toString());
+    localStorage.setItem('gamePoints', state.points.toString());
+    localStorage.setItem('usedQuestions', JSON.stringify(state.usedQuestions));
+    localStorage.setItem('lastQuestion', state.lastQuestion.toString());
+  };
+  
+  // Verificar si podemos reiniciar las preguntas usadas
+  const canResetUsedQuestions = (state) => {
+    return state.attempts >= 3 || state.points >= 10;
+  };
+  
+  // Obtener próxima pregunta que no se haya usado recientemente
+  const getNextQuestionIndex = (state) => {
+    let usedQuestions = [...state.usedQuestions];
+    
+    // Reiniciar si se cumplen las condiciones
+    if (canResetUsedQuestions(state)) {
+      usedQuestions = [];
+      console.log('✅ Condiciones cumplidas - Reiniciando preguntas usadas');
+    }
+    
+    // Si ya usó todas las preguntas, reiniciar
+    if (usedQuestions.length >= totalQuestions) {
+      usedQuestions = [];
+    }
+    
+    // Encontrar preguntas disponibles
+    const availableQuestions = [];
+    for (let i = 0; i < totalQuestions; i++) {
+      if (!usedQuestions.includes(i)) {
+        availableQuestions.push(i);
+      }
+    }
+    
+    // Elegir aleatoriamente de las disponibles
+    if (availableQuestions.length > 0) {
+      const nextIndex = availableQuestions[Math.floor(Math.random() * availableQuestions.length)];
+      return nextIndex;
+    }
+    
+    // Fallback: pregunta aleatoria
+    return Math.floor(Math.random() * totalQuestions);
+  };
+  
+  // Actualizar estado actual
+  const updateGameState = () => {
+    const state = getGameState();
+    
+    // Marcar pregunta actual como usada (si no es la primera vez)
+    if (state.lastQuestion !== -1 && !state.usedQuestions.includes(state.lastQuestion)) {
+      state.usedQuestions.push(state.lastQuestion);
+    }
+    
+    // Guardar la pregunta actual como última usada
+    state.lastQuestion = currentIndex;
+    
+    // Guardar estado actualizado
+    saveGameState(state);
+    
+    // Preparar próxima pregunta
+    const nextIndex = getNextQuestionIndex(state);
+    localStorage.setItem('nextQuestionIndex', nextIndex.toString());
+    
+    console.log('Estado del juego:', {
+      attempts: state.attempts,
+      points: state.points,
+      usedQuestions: state.usedQuestions,
+      nextQuestion: nextIndex,
+      canReset: canResetUsedQuestions(state)
+    });
+  };
+  
+  // Función para cuando el usuario responde
+  const handleAnswer = (isCorrect) => {
+    const state = getGameState();
+    
+    if (isCorrect) {
+      state.points += 1;
+      console.log('✅ Respuesta correcta! Puntos:', state.points);
+    } else {
+      console.log('❌ Respuesta incorrecta');
+    }
+    
+    state.attempts += 1;
+    saveGameState(state);
+    
+    // Verificar si podemos reiniciar después de esta respuesta
+    if (canResetUsedQuestions(state)) {
+      state.usedQuestions = [];
+      saveGameState(state);
+      console.log('🎉 Condiciones cumplidas! Preguntas reiniciadas.');
+    }
+    
+    // Recargar para nueva pregunta después de 1.5 segundos
+    setTimeout(() => {
+      window.location.reload();
+    }, 1500);
+  };
+  
+  // Inicializar estado
+  updateGameState();
+  
+  // Conectar eventos a los botones de respuesta (necesitas identificar cuál es correcta)
+  // Esto es un ejemplo - necesitarías adaptar tu componente Answers
+  const answerElements = document.querySelectorAll('[class*="answer"]');
+  answerElements.forEach((element, index) => {
+    element.addEventListener('click', () => {
+      // Aquí necesitas lógica para verificar si es la respuesta correcta
+      // Por ahora es un ejemplo aleatorio
+      const isCorrect = index === 0; // Suponiendo que la primera es correcta
+      handleAnswer(isCorrect);
+    });
+  });
+  
+  // Mostrar estado actual en la página (opcional)
+  const state = getGameState();
+  const statusElement = document.createElement('div');
+  statusElement.innerHTML = `
+    <div style="position: fixed; top: 10px; right: 10px; background: #333; color: white; padding: 10px; border-radius: 5px;">
+      Intentos: ${state.attempts} | Puntos: ${state.points} | Preguntas usadas: ${state.usedQuestions.length}
+    </div>
+  `;
+  document.body.appendChild(statusElement);
+});
+</script>

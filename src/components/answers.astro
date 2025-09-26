@@ -1,0 +1,13 @@
+---
+export interface Props {
+	text?: String,
+	isCorrect?: Boolean
+}
+
+const { text = 'N/I', isCorrect = false } = Astro.props;
+---
+<button class="w-[65dvw] max-w-[500px] bg-green-600 flex justify-center items-center p-[1rem] rounded-md min-h-[50px]" data-correct={isCorrect}>
+	<p class="text-white font-chewy text-lg text-center">
+		{text}
+	</p>	
+</button>
